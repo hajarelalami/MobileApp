@@ -5,9 +5,11 @@ import data.reposetry.PostReposetry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 
-public class Postservice {
+public class PostService {
     @Autowired
 
     private PostReposetry postreposetry;

@@ -1,8 +1,14 @@
 package data.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 @Entity(name="POST")
 public class PostEntity {
 
-    @Entity(name="POST")
+
 
 
     @Id
