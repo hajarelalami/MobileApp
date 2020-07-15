@@ -7,11 +7,7 @@ import javax.persistence.Id;
 
 @Entity(name="POST")
 public class PostEntity {
-
-
-
-
-    @Id
+        @Id
         @GeneratedValue
         private Long id;
         @Column(name = "user_id")
