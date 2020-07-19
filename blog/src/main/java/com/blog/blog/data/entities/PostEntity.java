@@ -1,20 +1,20 @@
-package data.entities;
+package com.blog.blog.data.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name="POST")
+@Entity(name = "POST")
 public class PostEntity {
-        @Id
-        @GeneratedValue
-        private Long id;
-        @Column(name = "user_id")
-        private Long userId;
-        private String title;
-        private String picture;
-        private String description;
+    @Id
+    @GeneratedValue
+    private Long id;
+    @Column(name = "user_id")
+    private Long userId;
+    private String title;
+    private String picture;
+    private String description;
 
     public PostEntity(Long id, Long userId, String title, String picture, String description) {
         this.id = id;

@@ -1,11 +1,11 @@
-package data.entities;
+package com.blog.blog.data.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-    @Entity(name="USER")
+@Entity(name = "USER")
 public class UserEntity {
     @Id
     @GeneratedValue
@@ -13,7 +13,7 @@ public class UserEntity {
     private String name;
     @Column(name = "last_name")
     private String lastName;
-    private  String email;
+    private String email;
     private String password;
 
     public UserEntity(Long id, String name, String lastName, String email, String password) {
