@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface PostRepository extends JpaRepository<PostEntity, Long> {
     @Query( value = "SELECT * FROM  post WHERE user_id = ?1", nativeQuery = true)
-    List<PostEntity> findPostsByUserId(String userId);
+    List<PostEntity> findPostsByUserId(long userId);
+
 }
