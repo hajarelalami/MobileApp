@@ -22,7 +22,6 @@ public class PostController {
     }
 
     @PostMapping("/post")
-
     public PostEntity addPost(@RequestBody PostEntity postEntity) {
         return this.postService.addPost(postEntity);
     }

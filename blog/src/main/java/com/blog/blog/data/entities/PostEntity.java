@@ -16,6 +16,9 @@ public class PostEntity {
     private String picture;
     private String description;
 
+    public PostEntity() {
+    }
+
     public PostEntity(Long id, Long userId, String title, String picture, String description) {
         this.id = id;
         this.userId = userId;
