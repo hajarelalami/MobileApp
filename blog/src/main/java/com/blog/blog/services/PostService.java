@@ -10,20 +10,20 @@ import java.util.List;
 @Service
 public class PostService {
     @Autowired
-    private PostRepository postreposetry;
+    private PostRepository postRepository;
 
     public List<PostEntity> getAllPosts() {
 
-        return postreposetry.findAll();
+        return postRepository.findAll();
     }
 
     public List<PostEntity> getPostByUserId(long userId) {
 
-        return postreposetry.findPostsByUserId(userId);
+        return postRepository.findPostsByUserId(userId);
     }
 
     public PostEntity addPost(PostEntity postEntity) {
-        return this.postreposetry.save(postEntity);
+        return this.postRepository.save(postEntity);
     }
 
 

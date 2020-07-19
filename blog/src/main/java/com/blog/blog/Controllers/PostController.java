@@ -13,17 +13,17 @@ import java.util.List;
 @RestController
 public class PostController {
     @Autowired
-    private PostService postservice;
+    private PostService postService;
 
 
     @GetMapping("/posts")
     public List<PostEntity> getAllPosts() {
-        return this.postservice.getAllPosts();
+        return this.postService.getAllPosts();
     }
 
     @PostMapping("/post")
 
     public PostEntity addPost(@RequestBody PostEntity postEntity) {
-        return this.postservice.addPost(postEntity);
+        return this.postService.addPost(postEntity);
     }
 }
