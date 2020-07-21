@@ -1,59 +1,63 @@
 package com.blog.blog.data.entities;
 
-import javax.persistence.Column;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.Collection;
 
-@Entity(name = "USER")
-public class UserEntity {
+@Entity(name = "blog_user")
+public class UserEntity implements Serializable, UserDetails {
     @Id
-    @GeneratedValue
-    private Long id;
-    private String name;
-    @Column(name = "last_name")
-    private String lastName;
-    private String email;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer userId;
+    private String username;
     private String password;
 
-    public UserEntity(Long id, String name, String lastName, String email, String password) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
+
+    public Integer getUserId() {
+        return userId;
     }
 
-    public Long getId() {
-        return id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getUsername() {
+        return username;
     }
 
-    public String getName() {
-        return name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
     }
 
-    public String getLastName() {
-        return lastName;
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
     }
 
-    public String getEmail() {
-        return email;
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     public String getPassword() {

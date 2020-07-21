@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "POST")
+@Entity(name = "post")
 public class PostEntity {
     @Id
     @GeneratedValue
@@ -15,6 +15,9 @@ public class PostEntity {
     private String title;
     private String picture;
     private String description;
+
+    public PostEntity() {
+    }
 
     public PostEntity(Long id, Long userId, String title, String picture, String description) {
         this.id = id;
