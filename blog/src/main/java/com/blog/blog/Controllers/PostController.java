@@ -17,7 +17,7 @@ public class PostController {
         return this.postService.getAllPosts();
     }
 
-    @PostMapping("/post")
+    @PostMapping("/posts")
     public PostEntity addPost(@RequestBody PostEntity postEntity) {
         return this.postService.addPost(postEntity);
     }
