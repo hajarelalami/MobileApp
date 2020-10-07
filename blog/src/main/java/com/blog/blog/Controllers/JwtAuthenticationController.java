@@ -6,6 +6,7 @@ import com.blog.blog.authentification.JwtUserDetailsService;
 import com.blog.blog.data.entities.JwtRequest;
 import com.blog.blog.data.entities.JwtResponse;
 import com.blog.blog.data.entities.UserEntity;
+import com.blog.blog.models.UserInfo;
 import com.blog.blog.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +15,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class JwtAuthenticationController {
@@ -37,6 +35,11 @@ public class JwtAuthenticationController {
                 .loadUserByUsername(authenticationRequest.getUsername());
         final String token = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
+    }
+
+    @GetMapping("info")
+    public UserInfo getUserInfo() {
+        return userDetailsService.getUserInfo();
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
