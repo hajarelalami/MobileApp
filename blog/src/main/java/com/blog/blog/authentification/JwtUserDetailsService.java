@@ -1,6 +1,8 @@
 package com.blog.blog.authentification;
 
 import com.blog.blog.data.entities.UserEntity;
+import com.blog.blog.models.UserInfo;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,5 +24,10 @@ public class JwtUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
         return new JwtUserDetails(adminUser);
+    }
+
+
+    public UserInfo getUserInfo() {
+        return new UserInfo(SecurityContextHolder.getContext().getAuthentication().getName());
     }
 }
