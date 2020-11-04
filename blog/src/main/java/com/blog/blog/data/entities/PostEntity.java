@@ -13,13 +13,13 @@ public class PostEntity {
     @Column(name = "user_id")
     private Long userId;
     private String title;
-    private byte[] picture;
+    private String picture;
     private String description;
 
     public PostEntity() {
     }
 
-    public PostEntity(Long id, Long userId, String title, byte[] picture, String description) {
+    public PostEntity(Long id, Long userId, String title, String picture, String description) {
         this.id = id;
         this.userId = userId;
         this.title = title;
@@ -51,11 +51,11 @@ public class PostEntity {
         this.title = title;
     }
 
-    public byte[] getPicture() {
+    public String getPicture() {
         return picture;
     }
 
-    public void setPicture(byte[] picture) {
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 
