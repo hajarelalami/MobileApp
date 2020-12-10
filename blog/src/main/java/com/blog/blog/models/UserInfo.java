@@ -1,10 +1,12 @@
 package com.blog.blog.models;
 
 public class UserInfo {
+    private String username;
+
     public UserInfo(String username) {
         this.username = username;
     }
-    private String username;
+
 
     public String getUsername() {
         return username;

@@ -1,6 +1,7 @@
 package com.blog.blog.services;
 
-import com.blog.blog.data.entities.UserEntity;
+import com.blog.blog.exception.UsernameAlreadyExists;
+import com.blog.blog.data.entities.User;
 import com.blog.blog.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,10 +14,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserEntity registerNewUserAccount(UserEntity accountDto) {
+    public User registerNewUserAccount(User accountDto) {
         if (userRepository.findUserWithName(accountDto.getUsername()).isPresent()) {
-            throw new RuntimeException();
-            // Add Exception
+            throw new UsernameAlreadyExists();
         }
         accountDto.setPassword(passwordEncoder.encode(accountDto.getPassword()));
         return userRepository.save(accountDto);

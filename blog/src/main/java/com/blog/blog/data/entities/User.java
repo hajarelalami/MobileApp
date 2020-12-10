@@ -11,19 +11,19 @@ import java.io.Serializable;
 import java.util.Collection;
 
 @Entity(name = "blog_user")
-public class UserEntity implements Serializable, UserDetails {
+public class User implements Serializable, UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+    private long userId;
     private String username;
     private String password;
 
 
-    public Integer getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 

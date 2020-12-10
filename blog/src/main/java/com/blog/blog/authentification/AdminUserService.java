@@ -1,6 +1,6 @@
 package com.blog.blog.authentification;
 
-import com.blog.blog.data.entities.UserEntity;
+import com.blog.blog.data.entities.User;
 import com.blog.blog.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,7 +18,7 @@ public class AdminUserService {
         this.userRepository = userRepository;
     }
 
-    public UserEntity getUserByUserName(String username) {
+    public User getUserByUserName(String username) {
         Objects.requireNonNull(username);
         return userRepository.findUserWithName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
